@@ -14,11 +14,11 @@
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
         android:text="41421453"
-        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/botaoImagemPrincipal2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botaoImagemPrincipal"
+        android:id="@+id/botaoImagemPrincipal1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
@@ -38,8 +38,8 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="51dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/botaoImagemPrincipal"
-        app:layout_constraintTop_toBottomOf="@+id/botaoImagemPrincipal" />
+        app:layout_constraintStart_toEndOf="@+id/botaoImagemPrincipal1"
+        app:layout_constraintTop_toBottomOf="@+id/botaoImagemPrincipal1" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -99,10 +99,10 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintStart_toStartOf="@+id/botaoImagemPrincipal" />
+        app:layout_constraintStart_toStartOf="@+id/botaoImagemPrincipal1" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botaoImagemPrincipal2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"

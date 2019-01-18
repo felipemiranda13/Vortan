@@ -15,4 +15,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botaoFormarSilaba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Formar silaba"
+        app:layout_constraintStart_toStartOf="@+id/botaoEncontrarLetra"
+        app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarLetra" />
 </android.support.constraint.ConstraintLayout>

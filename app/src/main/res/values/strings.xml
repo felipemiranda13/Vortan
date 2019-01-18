@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vortan</string>
+    <string name="title_activity_encontrar_silaba">EncontrarSilabaActivity</string>
+    <string name="title_activity_formar_silaba">FormarSilabaActivity</string>
 </resources>

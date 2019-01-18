@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button botaoEncontrarLetra;
+    private Button botaoFormarSilaba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,17 +17,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         botaoEncontrarLetra = (Button) findViewById(R.id.botaoEncontrarLetra);
+        botaoFormarSilaba = (Button) findViewById(R.id.botaoFormarSilaba);
 
         botaoEncontrarLetra.setOnClickListener(this);
+        botaoFormarSilaba.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+
         case R.id.botaoEncontrarLetra:
         startActivity(new Intent(MainActivity.this, EncontrarLetraActivity.class));
         break;
+
+        case R.id.botaoFormarSilaba:
+            startActivity(new Intent(MainActivity.this, FormarSilabaActivity.class));
+            break;
         }
     }
 }
