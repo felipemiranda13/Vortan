@@ -24,4 +24,15 @@
         android:text="Formar silaba"
         app:layout_constraintStart_toStartOf="@+id/botaoEncontrarLetra"
         app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarLetra" />
+
+    <Button
+        android:id="@+id/botaoEncontrarPalavraRima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginRight="81dp"
+        android:text="Encontrar palavra rima"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoFormarSilaba" />
 </android.support.constraint.ConstraintLayout>
