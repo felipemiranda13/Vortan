@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EncontrarPalavraRimaActivity"></activity>
+        <activity android:name=".EncontrarPalavraEscondidaActivity"></activity>
+        <activity android:name=".EncontrarParActivity" />
+        <activity android:name=".EncontrarSilabaActivity" />
+        <activity android:name=".EncontrarPalavraActivity" />
+        <activity android:name=".EncontrarRimaActivity" />
+        <activity android:name=".FormarSilabaPalavraActivity" />
+        <activity android:name=".EncontrarPalavraRimaActivity" />
         <activity android:name=".FormarSilabaActivity" />
         <activity android:name=".EncontrarLetraActivity" />
         <activity android:name=".MainActivity">
