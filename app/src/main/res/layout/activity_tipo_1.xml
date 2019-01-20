@@ -8,36 +8,44 @@
 
     <TextView
         android:id="@+id/texto1"
-        android:layout_width="102dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
-        android:text="41421453"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botaoImagemPrincipal1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/texto1"
-        app:layout_constraintTop_toBottomOf="@+id/texto1" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/texto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginRight="11dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/botaoImagemPrincipal1"
-        app:layout_constraintTop_toBottomOf="@+id/botaoImagemPrincipal1" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/texto1" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -45,69 +53,85 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
         android:layout_marginLeft="39dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="250dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/botaoOpcao1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/radioButton1"
-            android:layout_width="79dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="124dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
+            android:layout_width="79dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+
     </RadioGroup>
 
     <Button
         android:id="@+id/botaoOpcao1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:text="Button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/botaoOpcao2"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/botaoOpcao2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginBottom="39dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/botaoConfirmar"
-        app:layout_constraintStart_toEndOf="@+id/botaoOpcao1" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/botaoOpcao3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:text="Button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/botaoOpcao2"
-        app:layout_constraintStart_toEndOf="@+id/botaoOpcao2" />
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
 
     <Button
         android:id="@+id/botaoConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="24dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/botaoOpcao1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

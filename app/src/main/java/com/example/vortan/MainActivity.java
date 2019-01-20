@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botaoEncontrarPalavra = (Button) findViewById(R.id.botaoEncontrarPalavra);
         botaoEncontrarSilaba = (Button) findViewById(R.id.botaoEncontrarSilaba);
         botaoEncontrarPar = (Button) findViewById(R.id.botaoEncontrarPar);
-
+        botaoEncontrarPalavraEscondida = (Button) findViewById(R.id.botaoEncontrarPalavraEscondida);
 
         botaoEncontrarLetra.setOnClickListener(this);
         botaoFormarSilaba.setOnClickListener(this);

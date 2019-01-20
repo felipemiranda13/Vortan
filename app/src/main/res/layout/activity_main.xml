@@ -6,98 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/botaoEncontrarLetra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="117dp"
-        android:text="Encontrar letra"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="169dp"
+        android:layout_height="630dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="19dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.567">
 
-    <Button
-        android:id="@+id/botaoFormarSilaba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:text="Formar silaba"
-        app:layout_constraintStart_toStartOf="@+id/botaoEncontrarLetra"
-        app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarLetra" />
+        <Button
+            android:id="@+id/botaoEncontrarLetra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Encontrar letra"
+            app:layout_constraintBottom_toTopOf="@+id/botaoFormarSilaba"
+            app:layout_constraintStart_toStartOf="@+id/botaoFormarSilaba" />
 
-    <Button
-        android:id="@+id/botaoEncontrarPalavraRima"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
-        android:text="Encontrar palavra rima"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoFormarSilaba" />
+        <Button
+            android:id="@+id/botaoFormarSilaba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Formar silaba"
+            app:layout_constraintBottom_toTopOf="@+id/botaoEncontrarPalavraRima"
+            app:layout_constraintStart_toStartOf="@+id/botaoEncontrarPalavraRima" />
 
-    <Button
-        android:id="@+id/botaoFormarSilabaPalavra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginRight="92dp"
-        android:text="Formar silaba palavra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarPalavraRima" />
+        <Button
+            android:id="@+id/botaoEncontrarPalavraRima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="81dp"
+            android:text="Encontrar palavra rima"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/botaoEncontrarRima"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:text="Encontrar rima"
-        app:layout_constraintEnd_toEndOf="@+id/botaoFormarSilabaPalavra"
-        app:layout_constraintTop_toBottomOf="@+id/botaoFormarSilabaPalavra" />
+        <Button
+            android:id="@+id/botaoFormarSilabaPalavra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="Formar silaba palavra"
+            app:layout_constraintStart_toStartOf="@+id/botaoEncontrarRima"
+            app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarPalavraRima" />
 
-    <Button
-        android:id="@+id/botaoEncontrarPalavra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="21dp"
-        android:text="Encontrar Palavra"
-        app:layout_constraintStart_toStartOf="@+id/botaoEncontrarRima"
-        app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarRima" />
+        <Button
+            android:id="@+id/botaoEncontrarRima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:text="Encontrar rima"
+            app:layout_constraintEnd_toEndOf="@+id/botaoEncontrarPalavra"
+            app:layout_constraintTop_toBottomOf="@+id/botaoFormarSilabaPalavra" />
 
-    <Button
-        android:id="@+id/botaoEncontrarSilaba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
-        android:text="Encontrar silalba"
-        app:layout_constraintStart_toStartOf="@+id/botaoEncontrarPalavra"
-        app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarPalavra" />
+        <Button
+            android:id="@+id/botaoEncontrarPalavra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="108dp"
+            android:text="Encontrar Palavra"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarRima" />
 
-    <Button
-        android:id="@+id/botaoEncontrarPar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:text="Encontrar par"
-        app:layout_constraintEnd_toEndOf="@+id/botaoEncontrarSilaba"
-        app:layout_constraintTop_toTopOf="@+id/botaoEncontrarSilaba" />
+        <Button
+            android:id="@+id/botaoEncontrarSilaba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Encontrar silalba"
+            app:layout_constraintStart_toStartOf="@+id/botaoEncontrarPalavra"
+            app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarPalavra" />
 
-    <Button
-        android:id="@+id/botaoEncontrarPalavraEscondida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="Palavra escondida"
-        app:layout_constraintEnd_toEndOf="@+id/botaoEncontrarPar"
-        app:layout_constraintTop_toTopOf="@+id/botaoEncontrarPar" />
+        <Button
+            android:id="@+id/botaoEncontrarPar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="Encontrar par"
+            app:layout_constraintStart_toStartOf="@+id/botaoEncontrarSilaba"
+            app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarSilaba" />
+
+        <Button
+            android:id="@+id/botaoEncontrarPalavraEscondida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:text="Palavra escondida"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botaoEncontrarPar" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
