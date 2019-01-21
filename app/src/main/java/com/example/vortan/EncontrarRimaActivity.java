@@ -68,15 +68,15 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
         AtividadeTipo1 atv = new AtividadeTipo1();
         atv.texto1 = "Primeira questão: bla bla...";
         atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal = R.drawable.letra_a;
-        atv.somPrincipal = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.imgOpcao3 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_a;
+        atv.imgPrincipal = R.drawable.palavra_imagem_bola_principal;
+        atv.somPrincipal = R.raw.palavra_bola;
+        atv.imgOpcao1 = R.drawable.palavra_agua;
+        atv.imgOpcao2 = R.drawable.palavra_cola;
+        atv.imgOpcao3 = R.drawable.palavra_casa;
+        atv.opcaoCorreta = R.drawable.palavra_cola;
+        atv.somOpcao1 = R.raw.palavra_agua;
+        atv.somOpcao2 = R.raw.palavra_cola;
+        atv.somOpcao3 = R.raw.palavra_casa;
 
         atividades.add(atv);
 
@@ -121,7 +121,7 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.botaoOpcao3:
                 radioButton3.setChecked(true);
-                mediaPlayer = MediaPlayer.create(EncontrarRimaActivity.this, atividadeAtual.somOpcao2);
+                mediaPlayer = MediaPlayer.create(EncontrarRimaActivity.this, atividadeAtual.somOpcao3);
                 tocarSom();
                 break;
             case R.id.botaoConfirmar:

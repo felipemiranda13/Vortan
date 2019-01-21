@@ -68,15 +68,15 @@ public class EncontrarPalavraActivity extends AppCompatActivity implements View.
         AtividadeTipo1 atv = new AtividadeTipo1();
         atv.texto1 = "Primeira questão: bla bla...";
         atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal = R.drawable.letra_a;
-        atv.somPrincipal = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.imgOpcao3 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_a;
+        atv.imgPrincipal = R.drawable.objeto_bola;
+        atv.somPrincipal = R.raw.palavra_bola;
+        atv.imgOpcao1 = R.drawable.palavra_casa_menor;
+        atv.imgOpcao2 = R.drawable.palavra_agua_menor;
+        atv.imgOpcao3 = R.drawable.palavra_bola_menor;
+        atv.opcaoCorreta = R.drawable.palavra_bola_menor;
+        atv.somOpcao1 = R.raw.palavra_casa;
+        atv.somOpcao2 = R.raw.palavra_agua;
+        atv.somOpcao3 = R.raw.palavra_bola;
 
         atividades.add(atv);
 

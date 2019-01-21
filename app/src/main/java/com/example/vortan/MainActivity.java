@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, EncontrarParActivity.class));
                 break;
             case R.id.botaoEncontrarPalavraEscondida:
-                startActivity(new Intent(MainActivity.this, EncontrarPalavraActivity.class));
+                startActivity(new Intent(MainActivity.this, EncontrarPalavraEscondidaActivity.class));
                 break;
         }
     }

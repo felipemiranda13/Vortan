@@ -68,15 +68,15 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
         AtividadeTipo1 atv = new AtividadeTipo1();
         atv.texto1 = "Primeira questão: bla bla...";
         atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal = R.drawable.letra_a;
-        atv.somPrincipal = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.imgOpcao3 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_a;
+        atv.imgPrincipal = R.drawable.palavra_bola_principal_n;
+        atv.somPrincipal = R.raw.palavra_bola;
+        atv.imgOpcao1 = R.drawable.palavra_escondida_abolah;
+        atv.imgOpcao2 = R.drawable.palavra_escondida_adoiah;
+        atv.imgOpcao3 = R.drawable.palavra_escondida_ogfder;
+        atv.opcaoCorreta = R.drawable.palavra_escondida_abolah;
+        //atv.somOpcao1 = R.raw.letra_a;
+        //atv.somOpcao2 = R.raw.letra_a;
+        //atv.somOpcao3 = R.raw.letra_a;
 
         atividades.add(atv);
 
@@ -111,18 +111,18 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
                 break;
             case R.id.botaoOpcao1:
                 radioButton1.setChecked(true);
-                mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, atividadeAtual.somOpcao1);
-                tocarSom();
+               // mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, atividadeAtual.somOpcao1);
+                //tocarSom();
                 break;
             case R.id.botaoOpcao2:
                 radioButton2.setChecked(true);
-                mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, atividadeAtual.somOpcao2);
-                tocarSom();
+                //mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, atividadeAtual.somOpcao2);
+                //tocarSom();
                 break;
             case R.id.botaoOpcao3:
                 radioButton3.setChecked(true);
-                mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, atividadeAtual.somOpcao2);
-                tocarSom();
+                //mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, atividadeAtual.somOpcao2);
+                //tocarSom();
                 break;
             case R.id.botaoConfirmar:
                 if(radioButton1.isChecked()){

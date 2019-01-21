@@ -66,17 +66,17 @@ public class EncontrarPalavraRimaActivity extends AppCompatActivity implements V
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal = R.drawable.letra_a;
-        atv.somPrincipal = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.imgOpcao3 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_a;
+        atv.texto1 = "Olhe a imagem abaixo e aperte nela pra escutar um som:";
+        atv.texto2 = "Escolha a palavra abaixo que representa o acima:";
+        atv.imgPrincipal = R.drawable.objeto_bola;
+        atv.somPrincipal = R.raw.palavra_bola;
+        atv.imgOpcao1 = R.drawable.palavra_bola_menor;
+        atv.imgOpcao2 = R.drawable.palavra_cola_menor;
+        atv.imgOpcao3 = R.drawable.palavra_sola_menor;
+        atv.opcaoCorreta = R.drawable.palavra_bola_menor;
+        atv.somOpcao1 = R.raw.palavra_bola;
+        atv.somOpcao2 = R.raw.palavra_cola;
+        atv.somOpcao3 = R.raw.palavra_sola;
 
         atividades.add(atv);
 
@@ -121,7 +121,7 @@ public class EncontrarPalavraRimaActivity extends AppCompatActivity implements V
                 break;
             case R.id.botaoOpcao3:
                 radioButton3.setChecked(true);
-                mediaPlayer = MediaPlayer.create(EncontrarPalavraRimaActivity.this, atividadeAtual.somOpcao2);
+                mediaPlayer = MediaPlayer.create(EncontrarPalavraRimaActivity.this, atividadeAtual.somOpcao3);
                 tocarSom();
                 break;
             case R.id.botaoConfirmar:

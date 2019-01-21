@@ -68,15 +68,15 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
         AtividadeTipo1 atv = new AtividadeTipo1();
         atv.texto1 = "Primeira questão: bla bla...";
         atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal = R.drawable.letra_a;
-        atv.somPrincipal = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.imgOpcao3 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_a;
+        atv.imgPrincipal = R.drawable.letras_abcd_principal_n;
+        atv.somPrincipal = R.raw.letras_abcd;
+        atv.imgOpcao1 = R.drawable.letras_abed;
+        atv.imgOpcao2 = R.drawable.letras_adcb;
+        atv.imgOpcao3 = R.drawable.letras_adcb;
+        atv.opcaoCorreta = R.drawable.letras_abcd;
+        atv.somOpcao1 = R.raw.letras_abed;
+        atv.somOpcao2 = R.raw.letras_abcd;
+        atv.somOpcao3 = R.raw.letras_adcb;
 
         atividades.add(atv);
 

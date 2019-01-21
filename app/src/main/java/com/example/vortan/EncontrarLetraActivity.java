@@ -68,15 +68,15 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         AtividadeTipo1 atv = new AtividadeTipo1();
         atv.texto1 = "Primeira questão: bla bla...";
         atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal = R.drawable.letra_a;
-        atv.somPrincipal = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
+        atv.imgPrincipal = R.drawable.letra_b_principal;
+        atv.somPrincipal = R.raw.letra_b;
+        atv.imgOpcao1 = R.drawable.letra_d;
+        atv.imgOpcao2 = R.drawable.letra_a;
         atv.imgOpcao3 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
+        atv.opcaoCorreta = R.drawable.letra_b;
+        atv.somOpcao1 = R.raw.letra_d;
         atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_a;
+        atv.somOpcao3 = R.raw.letra_b;
 
         atividades.add(atv);
 
