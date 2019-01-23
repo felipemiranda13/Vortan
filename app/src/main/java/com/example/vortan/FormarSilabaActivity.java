@@ -73,10 +73,13 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
         atv.somPrincipal1 = R.raw.letra_b;
         atv.somPrincipal2 = R.raw.letra_o;
         atv.imgOpcao1 = R.drawable.som_1;
+        atv.imgOpcao1Erro = R.drawable.som_1_erro;
         atv.imgOpcao2 = R.drawable.som_2;
+        atv.imgOpcao2Erro = R.drawable.som_2_erro;
         atv.opcaoCorreta = R.drawable.som_1;
         atv.somOpcao1 = R.raw.silaba_bo;
         atv.somOpcao2 = R.raw.silaba_po;
+
 
         atividades.add(atv);
 
@@ -192,9 +195,10 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
 
             if (Opcao == atividadeAtual.imgOpcao1){
               //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
-                botaoOpcao1.setBackground(getResources().getDrawable(R.drawable.som_1_erro));
+                botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
             }else if(Opcao == atividadeAtual.imgOpcao2){
-                botaoOpcao2.setBackground(getResources().getDrawable(R.drawable.som_2_erro));
+                //botaoOpcao2.setBackground(getResources().getDrawable(R.drawable.som_2_erro));
+                botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
             }
         } else {
             mediaPlayer = MediaPlayer.create(FormarSilabaActivity.this, R.raw.palmas);

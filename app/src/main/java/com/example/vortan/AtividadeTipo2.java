@@ -12,6 +12,7 @@ public class AtividadeTipo2 {
 
     int somOpcao1, somOpcao2;
     int imgOpcao1, imgOpcao2;
+    int imgOpcao1Erro, imgOpcao2Erro;
 
     int opcaoCorreta;
 }

@@ -67,15 +67,17 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
         AtividadeTipo2 atv = new AtividadeTipo2();
         atv.texto1 = "Primeira questão: bla bla...";
         atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal1 = R.drawable.letra_a;
-        atv.imgPrincipal2 = R.drawable.letra_a;
-        atv.somPrincipal1 = R.raw.letra_a;
-        atv.somPrincipal2 = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
+        atv.imgPrincipal1 = R.drawable.silaba_bo;
+        atv.imgPrincipal2 = R.drawable.silaba_la;
+        atv.somPrincipal1 = R.raw.silaba_bo;
+        atv.somPrincipal2 = R.raw.silaba_la;
+        atv.imgOpcao1 = R.drawable.som_1;
+        atv.imgOpcao2 = R.drawable.som_2;
+        atv.imgOpcao1Erro = R.drawable.som_1_erro;
+        atv.imgOpcao2Erro = R.drawable.som_2_erro;
+        atv.opcaoCorreta = R.drawable.som_2;
+        atv.somOpcao1 = R.raw.palavra_cola;
+        atv.somOpcao2 = R.raw.palavra_bola;
 
         atividades.add(atv);
 
@@ -173,16 +175,40 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void checar(int Opcao) {
-        if (Opcao == atividadeAtual.opcaoCorreta) { //acertou
+
+        if (Opcao != atividadeAtual.opcaoCorreta) { //acertou
             //criar alert dialog
             dialog = new AlertDialog.Builder(FormarSilabaPalavraActivity.this);
 
             //configurar o titulo
-            dialog.setTitle("Titulo da dialog");
+            dialog.setTitle("Ops... ");
 
             //configurar a mensagem
-            dialog.setMessage("Você escolheu a opção correta, vá para a próxima atividade.");
+            dialog.setMessage("Escolha outra opção!");
+
+            dialog.create();
+            dialog.show();
+
+            if (Opcao == atividadeAtual.imgOpcao1){
+                //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
+                botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
+            }else if(Opcao == atividadeAtual.imgOpcao2){
+                //botaoOpcao2.setBackground(getResources().getDrawable(R.drawable.som_2_erro));
+                botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
+            }
+        } else {
+            mediaPlayer = MediaPlayer.create(FormarSilabaPalavraActivity.this, R.raw.palmas);
+            tocarSom();
+            //criar alert dialog
+            dialog = new AlertDialog.Builder(FormarSilabaPalavraActivity.this);
+
+            //configurar o titulo
+            dialog.setTitle("Parabéns!");
+
+            //configurar a mensagem
+            dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
 
             //configurar botao
             dialog.setNeutralButton("OK",
@@ -197,18 +223,11 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
 
             dialog.create();
             dialog.show();
-        } else {
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(FormarSilabaPalavraActivity.this);
-
-            //configurar o titulo
-            dialog.setTitle("Titulo da dialog");
-
-            //configurar a mensagem
-            dialog.setMessage("Escolha outra opção!");
-
-            dialog.create();
-            dialog.show();
         }
     }
+
+
+
+
 }
+

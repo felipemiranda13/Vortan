@@ -73,6 +73,9 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
         atv.imgOpcao1 = R.drawable.palavra_escondida_abolah;
         atv.imgOpcao2 = R.drawable.palavra_escondida_adoiah;
         atv.imgOpcao3 = R.drawable.palavra_escondida_ogfder;
+        atv.imgOpcao1Erro = R.drawable.palavra_escondida_abolah_erro;
+        atv.imgOpcao2Erro = R.drawable.palavra_escondida_adoiah_erro;
+        atv.imgOpcao3Erro = R.drawable.palavra_escondida_ogfder_erro;
         atv.opcaoCorreta = R.drawable.palavra_escondida_abolah;
         //atv.somOpcao1 = R.raw.letra_a;
         //atv.somOpcao2 = R.raw.letra_a;
@@ -175,16 +178,41 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
         botaoOpcao3.setBackground(getDrawable(atividadeAtual.imgOpcao3));
     }
 
-    private void checar(int Opcao){
-        if (Opcao == atividadeAtual.opcaoCorreta) { //acertou
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    private void checar(int Opcao) {
+
+        if (Opcao != atividadeAtual.opcaoCorreta) { //acertou
             //criar alert dialog
             dialog = new AlertDialog.Builder(EncontrarPalavraEscondidaActivity.this);
 
             //configurar o titulo
-            dialog.setTitle("Titulo da dialog");
+            dialog.setTitle("Ops... ");
 
             //configurar a mensagem
-            dialog.setMessage("Você escolheu a opção correta, vá para a próxima atividade.");
+            dialog.setMessage("Escolha outra opção!");
+
+            dialog.create();
+            dialog.show();
+
+            if (Opcao == atividadeAtual.imgOpcao1){
+                //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
+                botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
+            }else if(Opcao == atividadeAtual.imgOpcao2){
+                botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
+            }else if(Opcao == atividadeAtual.imgOpcao3){
+                botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao3Erro));
+            }
+        } else {
+            mediaPlayer = MediaPlayer.create(EncontrarPalavraEscondidaActivity.this, R.raw.palmas);
+            tocarSom();
+            //criar alert dialog
+            dialog = new AlertDialog.Builder(EncontrarPalavraEscondidaActivity.this);
+
+            //configurar o titulo
+            dialog.setTitle("Parabéns!");
+
+            //configurar a mensagem
+            dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
 
             //configurar botao
             dialog.setNeutralButton("OK",
@@ -199,18 +227,10 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
 
             dialog.create();
             dialog.show();
-        } else {
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(EncontrarPalavraEscondidaActivity.this);
-
-            //configurar o titulo
-            dialog.setTitle("Titulo da dialog");
-
-            //configurar a mensagem
-            dialog.setMessage("Escolha outra opção!");
-
-            dialog.create();
-            dialog.show();
         }
     }
+
+
+
+
 }
