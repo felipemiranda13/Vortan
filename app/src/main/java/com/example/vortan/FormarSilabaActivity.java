@@ -2,6 +2,7 @@ package com.example.vortan;
 
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -45,7 +46,7 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
         texto1 = findViewById(R.id.texto1);
         texto2 = findViewById(R.id.texto2);
         botaoImagemPrincipal1 = (Button) findViewById(R.id.botaoImagemPrincipal1);
-        botaoImagemPrincipal2 = (Button) findViewById(R.id.botaoImagemPrincipal1);
+        botaoImagemPrincipal2 = (Button) findViewById(R.id.botaoImagemPrincipal2);
         botaoOpcao1 = (Button) findViewById(R.id.botaoOpcao1);
         botaoOpcao2 = (Button) findViewById(R.id.botaoOpcao2);
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
@@ -65,17 +66,17 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
 
         //atividade 1
         AtividadeTipo2 atv = new AtividadeTipo2();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
-        atv.imgPrincipal1 = R.drawable.letra_a;
-        atv.imgPrincipal2 = R.drawable.letra_a;
-        atv.somPrincipal1 = R.raw.letra_a;
-        atv.somPrincipal2 = R.raw.letra_a;
-        atv.imgOpcao1 = R.drawable.letra_a;
-        atv.imgOpcao2 = R.drawable.letra_b;
-        atv.opcaoCorreta = R.drawable.letra_a;
-        atv.somOpcao1 = R.raw.letra_a;
-        atv.somOpcao2 = R.raw.letra_a;
+        atv.texto1 = "Olhe essas duas letras abaixo e escute seu som";
+        atv.texto2 = "Se juntarmos as duas letras a cima se formara uma silaba, qual o som dessa silaba?";
+        atv.imgPrincipal1 = R.drawable.letra_b;
+        atv.imgPrincipal2 = R.drawable.letra_o;
+        atv.somPrincipal1 = R.raw.letra_b;
+        atv.somPrincipal2 = R.raw.letra_o;
+        atv.imgOpcao1 = R.drawable.som_1;
+        atv.imgOpcao2 = R.drawable.som_2;
+        atv.opcaoCorreta = R.drawable.som_1;
+        atv.somOpcao1 = R.raw.silaba_bo;
+        atv.somOpcao2 = R.raw.silaba_po;
 
         atividades.add(atv);
 
@@ -173,16 +174,39 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void checar(int Opcao) {
-        if (Opcao == atividadeAtual.opcaoCorreta) { //acertou
+
+        if (Opcao != atividadeAtual.opcaoCorreta) { //acertou
             //criar alert dialog
             dialog = new AlertDialog.Builder(FormarSilabaActivity.this);
 
             //configurar o titulo
-            dialog.setTitle("Titulo da dialog");
+            dialog.setTitle("Ops... ");
 
             //configurar a mensagem
-            dialog.setMessage("Você escolheu a opção correta, vá para a próxima atividade.");
+            dialog.setMessage("Escolha outra opção!");
+
+            dialog.create();
+            dialog.show();
+
+            if (Opcao == atividadeAtual.imgOpcao1){
+              //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
+                botaoOpcao1.setBackground(getResources().getDrawable(R.drawable.som_1_erro));
+            }else if(Opcao == atividadeAtual.imgOpcao2){
+                botaoOpcao2.setBackground(getResources().getDrawable(R.drawable.som_2_erro));
+            }
+        } else {
+            mediaPlayer = MediaPlayer.create(FormarSilabaActivity.this, R.raw.palmas);
+            tocarSom();
+            //criar alert dialog
+            dialog = new AlertDialog.Builder(FormarSilabaActivity.this);
+
+            //configurar o titulo
+            dialog.setTitle("Parabéns!");
+
+            //configurar a mensagem
+            dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
 
             //configurar botao
             dialog.setNeutralButton("OK",
@@ -197,18 +221,11 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
 
             dialog.create();
             dialog.show();
-        } else {
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(FormarSilabaActivity.this);
-
-            //configurar o titulo
-            dialog.setTitle("Titulo da dialog");
-
-            //configurar a mensagem
-            dialog.setMessage("Escolha outra opção!");
-
-            dialog.create();
-            dialog.show();
         }
     }
-}
+
+
+
+
+    }
+
