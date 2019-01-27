@@ -2,6 +2,7 @@ package com.example.vortan;
 
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class EncontrarLetraActivity extends AppCompatActivity implements View.OnClickListener{
+public class EncontrarLetraActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView texto1;
     private TextView texto2;
@@ -32,6 +33,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
     private Button botaoOpcao3;
     private Button botaoConfirmar;
     private AlertDialog.Builder dialog;
+    int cont = 0;
 
     AtividadeTipo1 atividadeAtual;
     ArrayList<AtividadeTipo1> atividades;
@@ -58,7 +60,6 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         botaoOpcao2.setOnClickListener(this);
         botaoOpcao3.setOnClickListener(this);
         botaoConfirmar.setOnClickListener(this);
-
 
 
         //lista das atividades
@@ -107,7 +108,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.botaoImagemPrincipal1:
                 mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, atividadeAtual.somPrincipal);
                 tocarSom();
@@ -124,28 +125,28 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.botaoOpcao3:
                 radioButton3.setChecked(true);
-                mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, atividadeAtual.somOpcao2);
+                mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, atividadeAtual.somOpcao3);
                 tocarSom();
                 break;
             case R.id.botaoConfirmar:
-                if(radioButton1.isChecked()){
+                if (radioButton1.isChecked()) {
                     checar(atividadeAtual.imgOpcao1);
 //
 //                    dialog.show();
-                }else if(radioButton2.isChecked()){
+                } else if (radioButton2.isChecked()) {
                     checar(atividadeAtual.imgOpcao2);
 //
-                }else if(radioButton3.isChecked()){
+                } else if (radioButton3.isChecked()) {
                     checar(atividadeAtual.imgOpcao3);
 
-                }else{
+                } else {
                     Toast.makeText(EncontrarLetraActivity.this, "Escolha alguma opção.", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
     }
 
-    public void tocarSom(){
+    public void tocarSom() {
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -159,7 +160,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
     @Override
     protected void onDestroy() {
-        if(mediaPlayer != null){
+        if (mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;
         }
@@ -168,7 +169,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    private void exibirAtividade(AtividadeTipo1 atv){
+    private void exibirAtividade(AtividadeTipo1 atv) {
         atividadeAtual = atv;
         texto1.setText(atividadeAtual.texto1);
         texto2.setText(atividadeAtual.texto2);
@@ -194,43 +195,72 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
             dialog.create();
             dialog.show();
 
-            if (Opcao == atividadeAtual.imgOpcao1){
+            if (Opcao == atividadeAtual.imgOpcao1) {
                 //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
                 botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
-            }else if(Opcao == atividadeAtual.imgOpcao2){
+            } else if (Opcao == atividadeAtual.imgOpcao2) {
                 botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
-            }else if(Opcao == atividadeAtual.imgOpcao3){
+            } else if (Opcao == atividadeAtual.imgOpcao3) {
                 botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao3Erro));
             }
         } else {
-            mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
-            tocarSom();
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
+            cont++;
+            if (cont > 0) {
+                mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
+                tocarSom();
+                //criar alert dialog
+                dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
 
-            //configurar o titulo
-            dialog.setTitle("Parabéns!");
+                //configurar o titulo
+                dialog.setTitle("Parabéns!");
 
-            //configurar a mensagem
-            dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                //configurar a mensagem
+                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
 
-            //configurar botao
-            dialog.setNeutralButton("OK",
-                    new DialogInterface.OnClickListener() {
-                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                //configurar botao
+                dialog.setNeutralButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 //                                  //talvez exibir alguma animaçãp
-                            exibirAtividade(atividades.get(1)); //pegar numero aleatorio
-                        }
-                    });
+                                startActivity(new Intent(EncontrarLetraActivity.this, MainActivity.class));
 
-            dialog.create();
-            dialog.show();
+                            }
+                        });
+
+                dialog.create();
+                dialog.show();
+            } else {
+                mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
+                tocarSom();
+                //criar alert dialog
+                dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
+
+                //configurar o titulo
+                dialog.setTitle("Parabéns!");
+
+                //configurar a mensagem
+                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+
+                //configurar botao
+                dialog.setNeutralButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+//                                  //talvez exibir alguma animaçãp
+                                exibirAtividade(atividades.get(cont)); //pegar numero aleatorio
+                            }
+                        });
+
+                dialog.create();
+                dialog.show();
+                cont++;
+
+            }
         }
     }
-
-
 
 
 }
