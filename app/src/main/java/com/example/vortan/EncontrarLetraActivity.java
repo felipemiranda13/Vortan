@@ -238,10 +238,10 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
                 dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
 
                 //configurar o titulo
-                dialog.setTitle("Parabéns!");
+                dialog.setTitle("Muito bem!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Agora vá para a próxima atividade.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

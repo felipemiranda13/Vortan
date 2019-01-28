@@ -2,6 +2,7 @@ package com.example.vortan;
 
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -33,6 +34,7 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
     private Button botaoOpcao2;
     private Button botaoConfirmar;
     private AlertDialog.Builder dialog;
+    int cont=0;
 
     AtividadeTipo2 atividadeAtual;
     ArrayList<AtividadeTipo2> atividades;
@@ -201,35 +203,63 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
                 botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
             }
         } else {
-            mediaPlayer = MediaPlayer.create(FormarSilabaActivity.this, R.raw.palmas);
-            tocarSom();
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(FormarSilabaActivity.this);
+            cont++;
+            if (cont > 0) {
+                mediaPlayer = MediaPlayer.create(FormarSilabaActivity.this, R.raw.palmas);
+                tocarSom();
+                //criar alert dialog
+                dialog = new AlertDialog.Builder(FormarSilabaActivity.this);
 
-            //configurar o titulo
-            dialog.setTitle("Parabéns!");
+                //configurar o titulo
+                dialog.setTitle("Parabéns!");
 
-            //configurar a mensagem
-            dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                //configurar a mensagem
+                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
 
-            //configurar botao
-            dialog.setNeutralButton("OK",
-                    new DialogInterface.OnClickListener() {
-                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                //configurar botao
+                dialog.setNeutralButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 //                                  //talvez exibir alguma animaçãp
-                            exibirAtividade(atividades.get(1)); //pegar numero aleatorio
-                        }
-                    });
+                                startActivity(new Intent(FormarSilabaActivity.this, MainActivity.class));
 
-            dialog.create();
-            dialog.show();
+                            }
+                        });
+
+                dialog.create();
+                dialog.show();
+            } else {
+                mediaPlayer = MediaPlayer.create(FormarSilabaActivity.this, R.raw.palmas);
+                tocarSom();
+                //criar alert dialog
+                dialog = new AlertDialog.Builder(FormarSilabaActivity.this);
+
+                //configurar o titulo
+                dialog.setTitle("Muito bem!");
+
+                //configurar a mensagem
+                dialog.setMessage("Agora vá para a próxima atividade.");
+
+                //configurar botao
+                dialog.setNeutralButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+//                                  //talvez exibir alguma animaçãp
+                                exibirAtividade(atividades.get(cont)); //pegar numero aleatorio
+                            }
+                        });
+
+                dialog.create();
+                dialog.show();
+                cont++;
+
+            }
         }
     }
 
 
-
-
-    }
-
+}
