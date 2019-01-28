@@ -68,8 +68,8 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Olhe a imagem e a palavra que a representa, também escute seu som.";
+        atv.texto2 = "Qual das opções RIMA com a palavra acima?";
         atv.imgPrincipal = R.drawable.palavra_imagem_bola_principal;
         atv.somPrincipal = R.raw.palavra_bola;
         atv.imgOpcao1 = R.drawable.palavra_agua;
@@ -216,7 +216,7 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

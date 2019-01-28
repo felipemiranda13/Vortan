@@ -214,7 +214,7 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

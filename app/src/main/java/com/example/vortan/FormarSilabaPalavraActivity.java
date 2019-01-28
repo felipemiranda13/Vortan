@@ -47,7 +47,7 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
         texto1 = findViewById(R.id.texto1);
         texto2 = findViewById(R.id.texto2);
         botaoImagemPrincipal1 = (Button) findViewById(R.id.botaoImagemPrincipal1);
-        botaoImagemPrincipal2 = (Button) findViewById(R.id.botaoImagemPrincipal1);
+        botaoImagemPrincipal2 = (Button) findViewById(R.id.botaoImagemPrincipal2);
         botaoOpcao1 = (Button) findViewById(R.id.botaoOpcao1);
         botaoOpcao2 = (Button) findViewById(R.id.botaoOpcao2);
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
@@ -67,10 +67,10 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
 
         //atividade 1
         AtividadeTipo2 atv = new AtividadeTipo2();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Olhe e escute essas silabas.";
+        atv.texto2 = "Se juntarmos as duas silabas a cima, qual palavra formara? ";
         atv.imgPrincipal1 = R.drawable.silaba_bo;
-        atv.imgPrincipal2 = R.drawable.silaba_la;
+        atv.imgPrincipal2 = R.drawable.silaba_la_sem;
         atv.somPrincipal1 = R.raw.silaba_bo;
         atv.somPrincipal2 = R.raw.silaba_la;
         atv.imgOpcao1 = R.drawable.som_1;
@@ -212,7 +212,7 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

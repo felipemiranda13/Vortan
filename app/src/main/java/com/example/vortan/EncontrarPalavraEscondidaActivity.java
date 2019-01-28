@@ -68,8 +68,8 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Olhe essa palavra abaixo.";
+        atv.texto2 = "Qual das opcões abaixo tem a palavra acima em seu meio?";
         atv.imgPrincipal = R.drawable.palavra_bola_principal_n;
         atv.somPrincipal = R.raw.palavra_bola;
         atv.imgOpcao1 = R.drawable.palavra_escondida_abolah;
@@ -216,7 +216,7 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

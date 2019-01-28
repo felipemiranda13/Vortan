@@ -68,8 +68,8 @@ public class EncontrarPalavraActivity extends AppCompatActivity implements View.
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Olhe está imagem e escute seu som.";
+        atv.texto2 = "Qual das palavras respresenta a imagem?";
         atv.imgPrincipal = R.drawable.objeto_bola;
         atv.somPrincipal = R.raw.palavra_bola;
         atv.imgOpcao1 = R.drawable.palavra_casa_menor;
@@ -216,7 +216,7 @@ public class EncontrarPalavraActivity extends AppCompatActivity implements View.
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

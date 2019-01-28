@@ -67,8 +67,8 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Olhe e escute a letra abaixo";
+        atv.texto2 = "Qual das opcões é igual a letra acima?";
         atv.imgPrincipal = R.drawable.letra_b_principal;
         atv.somPrincipal = R.raw.letra_b;
         atv.imgOpcao1 = R.drawable.letra_d;
@@ -215,7 +215,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

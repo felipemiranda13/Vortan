@@ -68,8 +68,8 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Olhe e escute essa sequência de letras abaixo.";
+        atv.texto2 = "Qual das opções é a mesma sequência da de cima?";
         atv.imgPrincipal = R.drawable.letras_abcd_principal_n;
         atv.somPrincipal = R.raw.letras_abcd;
         atv.imgOpcao1 = R.drawable.letras_abed;
@@ -216,7 +216,7 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",

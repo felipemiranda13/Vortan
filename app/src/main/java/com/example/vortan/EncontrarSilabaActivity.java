@@ -67,20 +67,20 @@ public class EncontrarSilabaActivity extends AppCompatActivity implements View.O
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Primeira questão: bla bla...";
-        atv.texto2 = "Primeira questão: bla bla...";
+        atv.texto1 = "Escute o som abaixo.";
+        atv.texto2 = "Qual das silabas tem o mesmo som da opção acima?";
         atv.imgPrincipal = R.drawable.som_principal_roxo;
-        atv.somPrincipal = R.raw.letra_b;
-        atv.imgOpcao1 = R.drawable.letra_d;
-        atv.imgOpcao2 = R.drawable.letra_a;
-        atv.imgOpcao3 = R.drawable.letra_b;
-        atv.imgOpcao1Erro = R.drawable.letra_d_erro;
-        atv.imgOpcao2Erro = R.drawable.letra_a_erro;
-        atv.imgOpcao3Erro = R.drawable.letra_b_erro;
-        atv.opcaoCorreta = R.drawable.letra_b;
-        atv.somOpcao1 = R.raw.letra_d;
-        atv.somOpcao2 = R.raw.letra_a;
-        atv.somOpcao3 = R.raw.letra_b;
+        atv.somPrincipal = R.raw.silaba_bo;
+        atv.imgOpcao1 = R.drawable.silaba_bo_sem;
+        atv.imgOpcao2 = R.drawable.silaba_po;
+        atv.imgOpcao3 = R.drawable.silaba_la_sem;
+        atv.imgOpcao1Erro = R.drawable.silaba_bo_erro;
+        atv.imgOpcao2Erro = R.drawable.silaba_po_erro;
+        atv.imgOpcao3Erro = R.drawable.silaba_la_erro;
+        atv.opcaoCorreta = R.drawable.silaba_bo_sem;
+        atv.somOpcao1 = R.raw.silaba_bo;
+        atv.somOpcao2 = R.raw.silaba_po;
+        atv.somOpcao3 = R.raw.silaba_la;
 
         atividades.add(atv);
 
@@ -215,7 +215,7 @@ public class EncontrarSilabaActivity extends AppCompatActivity implements View.O
                 dialog.setTitle("Parabéns!");
 
                 //configurar a mensagem
-                dialog.setMessage("Muito bem! agora vá para a próxima atividade.");
+                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
 
                 //configurar botao
                 dialog.setNeutralButton("OK",
