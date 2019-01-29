@@ -68,8 +68,8 @@ public class EncontrarPalavraRimaActivity extends AppCompatActivity implements V
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Olhe a imagem abaixo e escute seu som:";
-        atv.texto2 = "Escolha a palavra abaixo que representa a imagem acima:";
+        atv.texto1 = "OLHE A IMAGEM ABAIXO E ESCUTE SEU SOM:";
+        atv.texto2 = "QUAL A PALAVRA ABAIXO QUE REPRESENTA A IMAGEM ACIMA?";
         atv.imgPrincipal = R.drawable.objeto_bola;
         atv.somPrincipal = R.raw.palavra_bola;
         atv.imgOpcao1 = R.drawable.palavra_bola_menor;

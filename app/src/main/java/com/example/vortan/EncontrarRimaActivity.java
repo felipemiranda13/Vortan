@@ -68,8 +68,8 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Olhe a imagem e a palavra que a representa, também escute seu som.";
-        atv.texto2 = "Qual das opções RIMA com a palavra acima?";
+        atv.texto1 = "OLHE A IMAGEM E A PALAVRA QUE A REPRESENTA, TAMBÉM ESCUTE SEU SOM.";
+        atv.texto2 = "QUAL DAS OPÇÕES RIMA COM A PALAVRA ACIMA?";
         atv.imgPrincipal = R.drawable.palavra_imagem_bola_principal;
         atv.somPrincipal = R.raw.palavra_bola;
         atv.imgOpcao1 = R.drawable.palavra_agua;

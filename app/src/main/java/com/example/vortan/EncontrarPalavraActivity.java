@@ -68,8 +68,8 @@ public class EncontrarPalavraActivity extends AppCompatActivity implements View.
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Olhe está imagem e escute seu som.";
-        atv.texto2 = "Qual das palavras respresenta a imagem?";
+        atv.texto1 = "OLHE ESTÁ IMAGEM E ESCUTE SEU SOM:";
+        atv.texto2 = "QUAL DAS PALAVRAS REPRESENTA A IMAGEM?";
         atv.imgPrincipal = R.drawable.objeto_bola;
         atv.somPrincipal = R.raw.palavra_bola;
         atv.imgOpcao1 = R.drawable.palavra_casa_menor;

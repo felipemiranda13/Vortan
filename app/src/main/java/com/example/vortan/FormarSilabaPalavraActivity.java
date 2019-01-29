@@ -67,8 +67,8 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
 
         //atividade 1
         AtividadeTipo2 atv = new AtividadeTipo2();
-        atv.texto1 = "Olhe e escute essas silabas.";
-        atv.texto2 = "Se juntarmos as duas silabas a cima, qual palavra formara? ";
+        atv.texto1 = "OLHE E ESCUTE ESSAS SILABAS:";
+        atv.texto2 = "SE JUNTARMOS AS DUAS SILABAS ACIMA, QUAL PALAVRA FORMARA? ";
         atv.imgPrincipal1 = R.drawable.silaba_bo;
         atv.imgPrincipal2 = R.drawable.silaba_la_sem;
         atv.somPrincipal1 = R.raw.silaba_bo;

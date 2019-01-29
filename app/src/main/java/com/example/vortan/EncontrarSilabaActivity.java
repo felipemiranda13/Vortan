@@ -67,8 +67,8 @@ public class EncontrarSilabaActivity extends AppCompatActivity implements View.O
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Escute o som abaixo.";
-        atv.texto2 = "Qual das silabas tem o mesmo som da opção acima?";
+        atv.texto1 = "ESCUTE O SOM ABAIXO:";
+        atv.texto2 = "QUAL DAS SILABAS TEM O MESMO SOM DA OPÇÃO ACIMA?";
         atv.imgPrincipal = R.drawable.som_principal_roxo;
         atv.somPrincipal = R.raw.silaba_bo;
         atv.imgOpcao1 = R.drawable.silaba_bo_sem;

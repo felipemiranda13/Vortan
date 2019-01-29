@@ -67,8 +67,8 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "Olhe e escute a letra abaixo";
-        atv.texto2 = "Qual das opcões é igual a letra acima?";
+        atv.texto1 = "OLHE E ESCUTE A LETRA ABAIXO:";
+        atv.texto2 = "QUAL DAS OPÇÕES É IGUAL A LETRA ACIMA?";
         atv.imgPrincipal = R.drawable.letra_b_principal;
         atv.somPrincipal = R.raw.letra_b;
         atv.imgOpcao1 = R.drawable.letra_d;
@@ -84,20 +84,24 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
         atividades.add(atv);
 
-        /*atividade 2
-        atv = new Atividade();
-        atv.texto = "Segunda questão: bla bla...";
-        atv.imgPrincipal = R.drawable.abcd;
-        atv.somPrincipal = R.raw.som_abcd;
-        atv.imgOpcao1 = R.drawable.bola_modelo2;
-        atv.imgOpcao2 = R.drawable.bola;
-        atv.imgOpcao3 = R.drawable.bola_rima;
-        atv.opcaoCorreta = R.drawable.bola_rima;
-        atv.somOpcao1 = R.raw.som_bo;
-        atv.somOpcao2 = R.raw.som_bola;
-        atv.somOpcao3 = R.raw.som_abcd;
+        //atividade 2
+        atv = new AtividadeTipo1();
+        atv.texto1 = "OLHE E ESCUTE A LETRA ABAIXO:";
+        atv.texto2 = "QUAL DAS OPÇÕES É IGUAL A LETRA ACIMA?";
+        atv.imgPrincipal = R.drawable.letra_m_principal;
+        atv.somPrincipal = R.raw.letra_m;
+        atv.imgOpcao1 = R.drawable.letra_m;
+        atv.imgOpcao2 = R.drawable.letra_n;
+        atv.imgOpcao3 = R.drawable.letra_w;
+        atv.imgOpcao1Erro = R.drawable.letra_m_erro;
+        atv.imgOpcao2Erro = R.drawable.letra_n_erro;
+        atv.imgOpcao3Erro = R.drawable.letra_w_erro;
+        atv.opcaoCorreta = R.drawable.letra_m;
+        atv.somOpcao1 = R.raw.letra_m;
+        atv.somOpcao2 = R.raw.letra_n;
+        atv.somOpcao3 = R.raw.letra_w;
 
-        atividades.add(atv);*/
+        atividades.add(atv);
 
         //exibir atividade 1
         exibirAtividade(atividades.get(0)); //posteriormente usar get random
