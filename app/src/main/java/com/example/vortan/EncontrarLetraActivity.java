@@ -32,8 +32,10 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
     private Button botaoOpcao2;
     private Button botaoOpcao3;
     private Button botaoConfirmar;
+    private Button botaoProximo;
     private AlertDialog.Builder dialog;
     int cont = 0;
+    boolean op;
 
     AtividadeTipo1 atividadeAtual;
     ArrayList<AtividadeTipo1> atividades;
@@ -42,6 +44,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_tipo_1);
 
         texto1 = findViewById(R.id.texto1);
@@ -54,16 +57,19 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         botaoConfirmar = (Button) findViewById(R.id.botaoConfirmar);
+        botaoProximo = (Button) findViewById(R.id.botaoProximo);
 
         botaoImagemPrincipal.setOnClickListener(this);
         botaoOpcao1.setOnClickListener(this);
         botaoOpcao2.setOnClickListener(this);
         botaoOpcao3.setOnClickListener(this);
         botaoConfirmar.setOnClickListener(this);
-
+        botaoProximo.setOnClickListener(this);
 
         //lista das atividades
         atividades = new ArrayList<>();
+
+        //botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo));
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
@@ -106,6 +112,9 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         //exibir atividade 1
         exibirAtividade(atividades.get(0)); //posteriormente usar get random
 
+        //if (op == true){
+          //  botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo_verde));
+       // }
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -145,6 +154,21 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
                 } else {
                     Toast.makeText(EncontrarLetraActivity.this, "Escolha alguma opção.", Toast.LENGTH_SHORT).show();
+                } if (op == true){
+                botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo_verde));
+                //exibirAtividade(atividades.get(1));
+            }
+                break;
+            case R.id.botaoProximo:
+                if (op == true){
+                    cont++;
+                    if (cont>1){
+                        startActivity(new Intent(EncontrarLetraActivity.this, MainActivity.class));
+                    }else{
+                        exibirAtividade(atividades.get(cont));
+                    }
+
+
                 }
                 break;
         }
@@ -187,20 +211,12 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
     private void checar(int Opcao) {
 
         if (Opcao != atividadeAtual.opcaoCorreta) { //acertou
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
+            op = false;
 
-            //configurar o titulo
-            dialog.setTitle("Ops... ");
-
-            //configurar a mensagem
-            dialog.setMessage("Escolha outra opção!");
-
-            dialog.create();
-            dialog.show();
+            mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.efeito_errar);
+            tocarSom();
 
             if (Opcao == atividadeAtual.imgOpcao1) {
-                //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
                 botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
             } else if (Opcao == atividadeAtual.imgOpcao2) {
                 botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
@@ -208,8 +224,9 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
                 botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao3Erro));
             }
         } else {
-            cont++;
-            if (cont > 0) {
+            op=true;
+            if (cont > 1) {
+                /*op=true;
                 mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
                 tocarSom();
                 //criar alert dialog
@@ -234,37 +251,15 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
                         });
 
                 dialog.create();
-                dialog.show();
+                dialog.show();*/
             } else {
+                op=true;
                 mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
                 tocarSom();
-                //criar alert dialog
-                dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
 
-                //configurar o titulo
-                dialog.setTitle("Muito bem!");
-
-                //configurar a mensagem
-                dialog.setMessage("Agora vá para a próxima atividade.");
-
-                //configurar botao
-                dialog.setNeutralButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                  //talvez exibir alguma animaçãp
-                                exibirAtividade(atividades.get(cont)); //pegar numero aleatorio
-                            }
-                        });
-
-                dialog.create();
-                dialog.show();
-                cont++;
 
             }
         }
+
     }
-
-
 }
