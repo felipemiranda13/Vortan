@@ -68,8 +68,8 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
 
         //atividade 1
         AtividadeTipo2 atv = new AtividadeTipo2();
-        atv.texto1 = "OLHE ESSAS DUAS LETRAS ABAIXO E ESCUTE SEU SOM:";
-        atv.texto2 = "SE JUNTARMOS AS DUAS LETRAS ACIMA SE FORMARÁ UMA SÍLABA, QUAL O SOM DESSA SÍLABA?";
+        atv.texto1 = "LEIA E ESCUTE AS DUAS LETRAS ABAIXO::";
+        atv.texto2 = "A SÍLABA FORMADA É?";
         atv.imgPrincipal1 = R.drawable.letra_b;
         atv.imgPrincipal2 = R.drawable.letra_o;
         atv.somPrincipal1 = R.raw.letra_b;

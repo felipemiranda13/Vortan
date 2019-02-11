@@ -33,6 +33,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
     private Button botaoOpcao3;
     private Button botaoConfirmar;
     private Button botaoProximo;
+    private Button botaoVoltar;
     private AlertDialog.Builder dialog;
     int cont = 0;
     boolean op;
@@ -58,6 +59,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         botaoConfirmar = (Button) findViewById(R.id.botaoConfirmar);
         botaoProximo = (Button) findViewById(R.id.botaoProximo);
+        botaoVoltar = (Button) findViewById(R.id.botaoVoltar);
 
         botaoImagemPrincipal.setOnClickListener(this);
         botaoOpcao1.setOnClickListener(this);
@@ -65,6 +67,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         botaoOpcao3.setOnClickListener(this);
         botaoConfirmar.setOnClickListener(this);
         botaoProximo.setOnClickListener(this);
+        botaoVoltar.setOnClickListener(this);
 
         //lista das atividades
         atividades = new ArrayList<>();
@@ -73,7 +76,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "OLHE E ESCUTE A LETRA ABAIXO:";
+        atv.texto1 = "LEIA E ESCUTE A LETRA ABAIXO:";
         atv.texto2 = "QUAL DAS OPÇÕES É IGUAL A LETRA ACIMA?";
         atv.imgPrincipal = R.drawable.letra_b_principal;
         atv.somPrincipal = R.raw.letra_b;
@@ -84,6 +87,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         atv.imgOpcao2Erro = R.drawable.letra_a_erro;
         atv.imgOpcao3Erro = R.drawable.letra_b_erro;
         atv.opcaoCorreta = R.drawable.letra_b;
+        atv.opcaoCerto = R.drawable.letra_b_certo;
         atv.somOpcao1 = R.raw.letra_d;
         atv.somOpcao2 = R.raw.letra_a;
         atv.somOpcao3 = R.raw.letra_b;
@@ -103,6 +107,7 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
         atv.imgOpcao2Erro = R.drawable.letra_n_erro;
         atv.imgOpcao3Erro = R.drawable.letra_w_erro;
         atv.opcaoCorreta = R.drawable.letra_m;
+        atv.opcaoCerto = R.drawable.letra_m_certo;
         atv.somOpcao1 = R.raw.letra_m;
         atv.somOpcao2 = R.raw.letra_n;
         atv.somOpcao3 = R.raw.letra_w;
@@ -163,13 +168,18 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
                 if (op == true){
                     cont++;
                     if (cont>1){
-                        startActivity(new Intent(EncontrarLetraActivity.this, MainActivity.class));
+                        startActivity(new Intent(EncontrarLetraActivity.this, TelaFimActivity.class));
                     }else{
                         exibirAtividade(atividades.get(cont));
+                        botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo));
                     }
 
 
                 }
+                break;
+
+            case R.id.botaoVoltar:
+                startActivity(new Intent(EncontrarLetraActivity.this, MainActivity.class));
                 break;
         }
     }
@@ -223,42 +233,19 @@ public class EncontrarLetraActivity extends AppCompatActivity implements View.On
             } else if (Opcao == atividadeAtual.imgOpcao3) {
                 botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao3Erro));
             }
+
         } else {
             op=true;
-            if (cont > 1) {
-                /*op=true;
-                mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
-                tocarSom();
-                //criar alert dialog
-                dialog = new AlertDialog.Builder(EncontrarLetraActivity.this);
-
-                //configurar o titulo
-                dialog.setTitle("Parabéns!");
-
-                //configurar a mensagem
-                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
-
-                //configurar botao
-                dialog.setNeutralButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                  //talvez exibir alguma animaçãp
-                                startActivity(new Intent(EncontrarLetraActivity.this, MainActivity.class));
-
-                            }
-                        });
-
-                dialog.create();
-                dialog.show();*/
-            } else {
-                op=true;
-                mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.palmas);
-                tocarSom();
-
-
+            mediaPlayer = MediaPlayer.create(EncontrarLetraActivity.this, R.raw.efeito_acertar);
+            tocarSom();
+            if (Opcao == atividadeAtual.imgOpcao1) {
+                botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
+            } else if (Opcao == atividadeAtual.imgOpcao2) {
+                botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
+            } else if (Opcao == atividadeAtual.imgOpcao3) {
+                botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
             }
+
         }
 
     }

@@ -68,8 +68,8 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
 
         //atividade 1
         AtividadeTipo1 atv = new AtividadeTipo1();
-        atv.texto1 = "OLHE E ESCUTE ESSA SEQUÊNCIA DE LETRAS ABAIXO:";
-        atv.texto2 = "QUAL DAS OPÇÕES É A MESMA SEQUÊNCIA DA DE CIMA?";
+        atv.texto1 = "LEIA E ESCUTE ESSA SEQUÊNCIA DE LETRAS ABAIXO:";
+        atv.texto2 = "QUAL DAS OPÇÕES REPRESENTA A MESMA SEQUÊNCIA DE LETRAS?";
         atv.imgPrincipal = R.drawable.letras_abcd_principal_n;
         atv.somPrincipal = R.raw.letras_abcd;
         atv.imgOpcao1 = R.drawable.letras_abed;
