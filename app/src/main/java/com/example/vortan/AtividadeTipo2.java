@@ -15,4 +15,5 @@ public class AtividadeTipo2 {
     int imgOpcao1Erro, imgOpcao2Erro;
 
     int opcaoCorreta;
+    int opcaoCerto;
 }

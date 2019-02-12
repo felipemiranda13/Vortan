@@ -32,8 +32,11 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
     private Button botaoOpcao2;
     private Button botaoOpcao3;
     private Button botaoConfirmar;
+    private Button botaoProximo;
+    private Button botaoVoltar;
     private AlertDialog.Builder dialog;
-    int cont=0;
+    int cont = 0;
+    boolean op;
 
     AtividadeTipo1 atividadeAtual;
     ArrayList<AtividadeTipo1> atividades;
@@ -42,6 +45,7 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_tipo_1);
 
         texto1 = findViewById(R.id.texto1);
@@ -54,12 +58,22 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         botaoConfirmar = (Button) findViewById(R.id.botaoConfirmar);
+        botaoProximo = (Button) findViewById(R.id.botaoProximo);
+        botaoVoltar = (Button) findViewById(R.id.botaoVoltar);
 
         botaoImagemPrincipal.setOnClickListener(this);
         botaoOpcao1.setOnClickListener(this);
         botaoOpcao2.setOnClickListener(this);
         botaoOpcao3.setOnClickListener(this);
         botaoConfirmar.setOnClickListener(this);
+        botaoProximo.setOnClickListener(this);
+        botaoVoltar.setOnClickListener(this);
+
+        //lista das atividades
+        atividades = new ArrayList<>();
+
+        //botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo));
+
 
 
 
@@ -79,6 +93,7 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
         atv.imgOpcao2Erro = R.drawable.letras_adcb_erro;
         atv.imgOpcao3Erro = R.drawable.letras_abcd_erro;
         atv.opcaoCorreta = R.drawable.letras_abcd;
+        atv.opcaoCerto = R.drawable.letras_abcd;
         atv.somOpcao1 = R.raw.letras_abed;
         atv.somOpcao2 = R.raw.letras_adcb;
         atv.somOpcao3 = R.raw.letras_abcd;
@@ -130,19 +145,39 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
                 tocarSom();
                 break;
             case R.id.botaoConfirmar:
-                if(radioButton1.isChecked()){
+                if (radioButton1.isChecked()) {
                     checar(atividadeAtual.imgOpcao1);
 //
 //                    dialog.show();
-                }else if(radioButton2.isChecked()){
+                } else if (radioButton2.isChecked()) {
                     checar(atividadeAtual.imgOpcao2);
 //
-                }else if(radioButton3.isChecked()){
+                } else if (radioButton3.isChecked()) {
                     checar(atividadeAtual.imgOpcao3);
 
-                }else{
+                } else {
                     Toast.makeText(EncontrarParActivity.this, "Escolha alguma opção.", Toast.LENGTH_SHORT).show();
+                } if (op == true){
+                botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo_verde));
+                //exibirAtividade(atividades.get(1));
+            }
+                break;
+            case R.id.botaoProximo:
+                if (op == true){
+                    cont++;
+                    if (cont>0){
+                        startActivity(new Intent(EncontrarParActivity.this, TelaFimActivity.class));
+                    }else{
+                        exibirAtividade(atividades.get(cont));
+                        botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo));
+                    }
+
+
                 }
+                break;
+
+            case R.id.botaoVoltar:
+                startActivity(new Intent(EncontrarParActivity.this, MainActivity.class));
                 break;
         }
     }
@@ -184,84 +219,32 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
     private void checar(int Opcao) {
 
         if (Opcao != atividadeAtual.opcaoCorreta) { //acertou
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(EncontrarParActivity.this);
+            op = false;
 
-            //configurar o titulo
-            dialog.setTitle("Ops... ");
+            mediaPlayer = MediaPlayer.create(EncontrarParActivity.this, R.raw.efeito_errar);
+            tocarSom();
 
-            //configurar a mensagem
-            dialog.setMessage("Escolha outra opção!");
-
-            dialog.create();
-            dialog.show();
-
-            if (Opcao == atividadeAtual.imgOpcao1){
-                //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
+            if (Opcao == atividadeAtual.imgOpcao1) {
                 botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
-            }else if(Opcao == atividadeAtual.imgOpcao2){
+            } else if (Opcao == atividadeAtual.imgOpcao2) {
                 botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
-            }else if(Opcao == atividadeAtual.imgOpcao3){
+            } else if (Opcao == atividadeAtual.imgOpcao3) {
                 botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao3Erro));
             }
+
         } else {
-            cont++;
-            if (cont > 0) {
-                mediaPlayer = MediaPlayer.create(EncontrarParActivity.this, R.raw.palmas);
-                tocarSom();
-                //criar alert dialog
-                dialog = new AlertDialog.Builder(EncontrarParActivity.this);
-
-                //configurar o titulo
-                dialog.setTitle("Parabéns!");
-
-                //configurar a mensagem
-                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
-
-                //configurar botao
-                dialog.setNeutralButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                  //talvez exibir alguma animaçãp
-                                startActivity(new Intent(EncontrarParActivity.this, MainActivity.class));
-
-                            }
-                        });
-
-                dialog.create();
-                dialog.show();
-            } else {
-                mediaPlayer = MediaPlayer.create(EncontrarParActivity.this, R.raw.palmas);
-                tocarSom();
-                //criar alert dialog
-                dialog = new AlertDialog.Builder(EncontrarParActivity.this);
-
-                //configurar o titulo
-                dialog.setTitle("Muito bem!");
-
-                //configurar a mensagem
-                dialog.setMessage("Agora vá para a próxima atividade.");
-
-                //configurar botao
-                dialog.setNeutralButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                  //talvez exibir alguma animaçãp
-                                exibirAtividade(atividades.get(cont)); //pegar numero aleatorio
-                            }
-                        });
-
-                dialog.create();
-                dialog.show();
-                cont++;
-
+            op=true;
+            mediaPlayer = MediaPlayer.create(EncontrarParActivity.this, R.raw.efeito_acertar);
+            tocarSom();
+            if (Opcao == atividadeAtual.imgOpcao1) {
+                botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
+            } else if (Opcao == atividadeAtual.imgOpcao2) {
+                botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
+            } else if (Opcao == atividadeAtual.imgOpcao3) {
+                botaoOpcao3.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
             }
+
         }
+
     }
-
-
 }

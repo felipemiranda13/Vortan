@@ -34,6 +34,9 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
     private Button botaoConfirmar;
     private AlertDialog.Builder dialog;
     int cont=0;
+    boolean op;
+    private Button botaoProximo;
+    private Button botaoVoltar;
 
     AtividadeTipo2 atividadeAtual;
     ArrayList<AtividadeTipo2> atividades;
@@ -54,12 +57,16 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         botaoConfirmar = (Button) findViewById(R.id.botaoConfirmar);
+        botaoProximo = (Button) findViewById(R.id.botaoProximo);
+        botaoVoltar = (Button) findViewById(R.id.botaoVoltar);
 
         botaoImagemPrincipal1.setOnClickListener(this);
         botaoImagemPrincipal2.setOnClickListener(this);
         botaoOpcao1.setOnClickListener(this);
         botaoOpcao2.setOnClickListener(this);
         botaoConfirmar.setOnClickListener(this);
+        botaoProximo.setOnClickListener(this);
+        botaoVoltar.setOnClickListener(this);
 
 
         //lista das atividades
@@ -78,6 +85,7 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
         atv.imgOpcao1Erro = R.drawable.som_1_erro;
         atv.imgOpcao2Erro = R.drawable.som_2_erro;
         atv.opcaoCorreta = R.drawable.som_2;
+        atv.opcaoCerto = R.drawable.som_2;
         atv.somOpcao1 = R.raw.palavra_cola;
         atv.somOpcao2 = R.raw.palavra_bola;
 
@@ -134,11 +142,29 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
                 } else if (radioButton2.isChecked()) {
                     checar(atividadeAtual.imgOpcao2);
 //
-                }
-
-                else {
+                }  else {
                     Toast.makeText(FormarSilabaPalavraActivity.this, "Escolha alguma opção.", Toast.LENGTH_SHORT).show();
+                } if (op == true){
+                botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo_verde));
+                //exibirAtividade(atividades.get(1));
+            }
+                break;
+            case R.id.botaoProximo:
+                if (op == true){
+                    cont++;
+                    if (cont>0){
+                        startActivity(new Intent(FormarSilabaPalavraActivity.this, TelaFimActivity.class));
+                    }else{
+                        exibirAtividade(atividades.get(cont));
+                        botaoProximo.setBackground(getResources().getDrawable(R.drawable.botao_proximo));
+                    }
+
+
                 }
+                break;
+
+            case R.id.botaoVoltar:
+                startActivity(new Intent(FormarSilabaPalavraActivity.this, MainActivity.class));
                 break;
         }
     }
@@ -181,83 +207,26 @@ public class FormarSilabaPalavraActivity extends AppCompatActivity implements Vi
     private void checar(int Opcao) {
 
         if (Opcao != atividadeAtual.opcaoCorreta) { //acertou
-            //criar alert dialog
-            dialog = new AlertDialog.Builder(FormarSilabaPalavraActivity.this);
+            op = false;
 
-            //configurar o titulo
-            dialog.setTitle("Ops... ");
+            mediaPlayer = MediaPlayer.create(FormarSilabaPalavraActivity.this, R.raw.efeito_errar);
+            tocarSom();
 
-            //configurar a mensagem
-            dialog.setMessage("Escolha outra opção!");
-
-            dialog.create();
-            dialog.show();
-
-            if (Opcao == atividadeAtual.imgOpcao1){
-                //  imgOpcao1.setBackground(getResources().getDrawable(R.drawable.x_negar));
+            if (Opcao == atividadeAtual.imgOpcao1) {
                 botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao1Erro));
-            }else if(Opcao == atividadeAtual.imgOpcao2){
-                //botaoOpcao2.setBackground(getResources().getDrawable(R.drawable.som_2_erro));
+            } else if (Opcao == atividadeAtual.imgOpcao2) {
                 botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.imgOpcao2Erro));
             }
+
         } else {
-            cont++;
-            if (cont > 0) {
-                mediaPlayer = MediaPlayer.create(FormarSilabaPalavraActivity.this, R.raw.palmas);
-                tocarSom();
-                //criar alert dialog
-                dialog = new AlertDialog.Builder(FormarSilabaPalavraActivity.this);
-
-                //configurar o titulo
-                dialog.setTitle("Parabéns!");
-
-                //configurar a mensagem
-                dialog.setMessage("Você terminou todas as atividades desse módulo, escolha outro módulo no menu.");
-
-                //configurar botao
-                dialog.setNeutralButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                  //talvez exibir alguma animaçãp
-                                startActivity(new Intent(FormarSilabaPalavraActivity.this, MainActivity.class));
-
-                            }
-                        });
-
-                dialog.create();
-                dialog.show();
-            } else {
-                mediaPlayer = MediaPlayer.create(FormarSilabaPalavraActivity.this, R.raw.palmas);
-                tocarSom();
-                //criar alert dialog
-                dialog = new AlertDialog.Builder(FormarSilabaPalavraActivity.this);
-
-                //configurar o titulo
-                dialog.setTitle("Muito bem!");
-
-                //configurar a mensagem
-                dialog.setMessage("Agora vá para a próxima atividade.");
-
-                //configurar botao
-                dialog.setNeutralButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-//                                  //talvez exibir alguma animaçãp
-                                exibirAtividade(atividades.get(cont)); //pegar numero aleatorio
-                            }
-                        });
-
-                dialog.create();
-                dialog.show();
-                cont++;
-
+            op=true;
+            mediaPlayer = MediaPlayer.create(FormarSilabaPalavraActivity.this, R.raw.efeito_acertar);
+            tocarSom();
+            if (Opcao == atividadeAtual.imgOpcao1) {
+                botaoOpcao1.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
+            } else if (Opcao == atividadeAtual.imgOpcao2) {
+                botaoOpcao2.setBackground(getResources().getDrawable(atividadeAtual.opcaoCerto));
             }
         }
     }
-
-
 }
