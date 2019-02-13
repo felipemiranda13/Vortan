@@ -83,34 +83,39 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
         atv.texto2 = "QUAL DAS OPÇÕES CONTÉM A PALAVRA ACIMA?";
         atv.imgPrincipal = R.drawable.palavra_bola_principal_n;
         atv.somPrincipal = R.raw.palavra_bola;
-        atv.imgOpcao1 = R.drawable.palavra_escondida_abolah;
-        atv.imgOpcao2 = R.drawable.palavra_escondida_adoiah;
-        atv.imgOpcao3 = R.drawable.palavra_escondida_ogfder;
-        atv.imgOpcao1Erro = R.drawable.palavra_escondida_abolah_erro;
-        atv.imgOpcao2Erro = R.drawable.palavra_escondida_adoiah_erro;
-        atv.imgOpcao3Erro = R.drawable.palavra_escondida_ogfder_erro;
+        atv.imgOpcao1 = R.drawable.palavra_escondida_ogfder;
+        atv.imgOpcao2 = R.drawable.palavra_escondida_abolah;
+        atv.imgOpcao3 = R.drawable.palavra_escondida_adoiah;
+        atv.imgOpcao1Erro = R.drawable.palavra_escondida_ogfder_erro;
+        atv.imgOpcao2Erro = R.drawable.palavra_escondida_abolah_erro;
+        atv.imgOpcao3Erro = R.drawable.palavra_escondida_adoiah_erro;
         atv.opcaoCorreta = R.drawable.palavra_escondida_abolah;
-        atv.opcaoCerto = R.drawable.palavra_escondida_abolah;
+        atv.opcaoCerto = R.drawable.palavra_escondida_abolah_certo;
         //atv.somOpcao1 = R.raw.letra_a;
         //atv.somOpcao2 = R.raw.letra_a;
         //atv.somOpcao3 = R.raw.letra_a;
 
         atividades.add(atv);
 
-        /*atividade 2
-        atv = new Atividade();
-        atv.texto = "Segunda questão: bla bla...";
-        atv.imgPrincipal = R.drawable.abcd;
-        atv.somPrincipal = R.raw.som_abcd;
-        atv.imgOpcao1 = R.drawable.bola_modelo2;
-        atv.imgOpcao2 = R.drawable.bola;
-        atv.imgOpcao3 = R.drawable.bola_rima;
-        atv.opcaoCorreta = R.drawable.bola_rima;
-        atv.somOpcao1 = R.raw.som_bo;
-        atv.somOpcao2 = R.raw.som_bola;
-        atv.somOpcao3 = R.raw.som_abcd;
+        //atividade 2
+        atv = new AtividadeTipo1();
+        atv.texto1 = "LEIA ESSA PALAVRA ABAIXO:";
+        atv.texto2 = "QUAL DAS OPÇÕES CONTÉM A PALAVRA ACIMA?";
+        atv.imgPrincipal = R.drawable.palavra_casa_principal_n;
+        atv.somPrincipal = R.raw.palavra_bola;
+        atv.imgOpcao1 = R.drawable.palavra_escondida_bcasay;
+        atv.imgOpcao2 = R.drawable.palavra_escondida_dbapoi;
+        atv.imgOpcao3 = R.drawable.palavra_escondida_bcazay;
+        atv.imgOpcao1Erro = R.drawable.palavra_escondida_bcasay_erro;
+        atv.imgOpcao2Erro = R.drawable.palavra_escondida_dbapoi_erro;
+        atv.imgOpcao3Erro = R.drawable.palavra_escondida_bcazay_erro;
+        atv.opcaoCorreta = R.drawable.palavra_escondida_bcasay;
+        atv.opcaoCerto = R.drawable.palavra_escondida_bcasay_certo;
+        //atv.somOpcao1 = R.raw.letra_a;
+        //atv.somOpcao2 = R.raw.letra_a;
+        //atv.somOpcao3 = R.raw.letra_a;
 
-        atividades.add(atv);*/
+        atividades.add(atv);
 
         //exibir atividade 1
         exibirAtividade(atividades.get(0)); //posteriormente usar get random
@@ -162,7 +167,7 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
             case R.id.botaoProximo:
                 if (op == true){
                     cont++;
-                    if (cont>0){
+                    if (cont>1){
                         startActivity(new Intent(EncontrarPalavraEscondidaActivity.this, TelaFimActivity.class));
                     }else{
                         exibirAtividade(atividades.get(cont));

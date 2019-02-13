@@ -86,34 +86,39 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
         atv.texto2 = "QUAL DAS OPÇÕES REPRESENTA A MESMA SEQUÊNCIA DE LETRAS?";
         atv.imgPrincipal = R.drawable.letras_abcd_principal_n;
         atv.somPrincipal = R.raw.letras_abcd;
-        atv.imgOpcao1 = R.drawable.letras_abed;
-        atv.imgOpcao2 = R.drawable.letras_adcb;
-        atv.imgOpcao3 = R.drawable.letras_abcd;
-        atv.imgOpcao1Erro = R.drawable.letras_abed_erro;
-        atv.imgOpcao2Erro = R.drawable.letras_adcb_erro;
-        atv.imgOpcao3Erro = R.drawable.letras_abcd_erro;
+        atv.imgOpcao1 = R.drawable.letras_abcd;
+        atv.imgOpcao2 = R.drawable.letras_abed;
+        atv.imgOpcao3 = R.drawable.letras_adcb;
+        atv.imgOpcao1Erro = R.drawable.letras_abcd_erro;
+        atv.imgOpcao2Erro = R.drawable.letras_abed_erro;
+        atv.imgOpcao3Erro = R.drawable.letras_adcb_erro;
         atv.opcaoCorreta = R.drawable.letras_abcd;
-        atv.opcaoCerto = R.drawable.letras_abcd;
-        atv.somOpcao1 = R.raw.letras_abed;
-        atv.somOpcao2 = R.raw.letras_adcb;
-        atv.somOpcao3 = R.raw.letras_abcd;
+        atv.opcaoCerto = R.drawable.letras_abcd_certo;
+        atv.somOpcao1 = R.raw.letras_abcd;
+        atv.somOpcao2 = R.raw.letras_abed;
+        atv.somOpcao3 = R.raw.letras_adcb;
 
         atividades.add(atv);
 
-        /*atividade 2
-        atv = new Atividade();
-        atv.texto = "Segunda questão: bla bla...";
-        atv.imgPrincipal = R.drawable.abcd;
-        atv.somPrincipal = R.raw.som_abcd;
-        atv.imgOpcao1 = R.drawable.bola_modelo2;
-        atv.imgOpcao2 = R.drawable.bola;
-        atv.imgOpcao3 = R.drawable.bola_rima;
-        atv.opcaoCorreta = R.drawable.bola_rima;
-        atv.somOpcao1 = R.raw.som_bo;
-        atv.somOpcao2 = R.raw.som_bola;
-        atv.somOpcao3 = R.raw.som_abcd;
+        //atividade 2
+        atv = new AtividadeTipo1();
+        atv.texto1 = "LEIA E ESCUTE ESSA SEQUÊNCIA DE LETRAS ABAIXO:";
+        atv.texto2 = "QUAL DAS OPÇÕES REPRESENTA A MESMA SEQUÊNCIA DE LETRAS?";
+        atv.imgPrincipal = R.drawable.letras_aeio_principal_n;
+        atv.somPrincipal = R.raw.letras_abcd;
+        atv.imgOpcao1 = R.drawable.letras_adio;
+        atv.imgOpcao2 = R.drawable.letras_aeio;
+        atv.imgOpcao3 = R.drawable.letras_aeiu;
+        atv.imgOpcao1Erro = R.drawable.letras_adio_erro;
+        atv.imgOpcao2Erro = R.drawable.letras_aeiu_erro;
+        atv.imgOpcao3Erro = R.drawable.letras_aeiu_erro;
+        atv.opcaoCorreta = R.drawable.letras_aeio;
+        atv.opcaoCerto = R.drawable.letras_aeio_certo;
+        atv.somOpcao1 = R.raw.letras_abcd;
+        atv.somOpcao2 = R.raw.letras_abed;
+        atv.somOpcao3 = R.raw.letras_adcb;
 
-        atividades.add(atv);*/
+        atividades.add(atv);
 
         //exibir atividade 1
         exibirAtividade(atividades.get(0)); //posteriormente usar get random
@@ -165,7 +170,7 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
             case R.id.botaoProximo:
                 if (op == true){
                     cont++;
-                    if (cont>0){
+                    if (cont>1){
                         startActivity(new Intent(EncontrarParActivity.this, TelaFimActivity.class));
                     }else{
                         exibirAtividade(atividades.get(cont));

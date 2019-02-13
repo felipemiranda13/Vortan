@@ -80,34 +80,40 @@ public class EncontrarPalavraRimaActivity extends AppCompatActivity implements V
         atv.texto2 = "QUAL A PALAVRA ABAIXO QUE REPRESENTA A IMAGEM ACIMA?";
         atv.imgPrincipal = R.drawable.objeto_bola;
         atv.somPrincipal = R.raw.palavra_bola;
-        atv.imgOpcao1 = R.drawable.palavra_bola_menor;
-        atv.imgOpcao2 = R.drawable.palavra_cola_menor;
-        atv.imgOpcao3 = R.drawable.palavra_sola_menor;
-        atv.imgOpcao1Erro = R.drawable.palavra_bola_menor_erro;
-        atv.imgOpcao2Erro = R.drawable.palavra_cola_menor_erro;
-        atv.imgOpcao3Erro = R.drawable.palavra_sola_menor_erro;
+        atv.imgOpcao1 = R.drawable.palavra_cola_menor;
+        atv.imgOpcao2 = R.drawable.palavra_sola_menor;
+        atv.imgOpcao3 = R.drawable.palavra_bola_menor;
+        atv.imgOpcao1Erro = R.drawable.palavra_cola_menor_erro;
+        atv.imgOpcao2Erro = R.drawable.palavra_sola_menor_erro;
+        atv.imgOpcao3Erro = R.drawable.palavra_bola_menor_erro;
         atv.opcaoCorreta = R.drawable.palavra_bola_menor;
-        atv.opcaoCerto = R.drawable.palavra_bola_menor;
-        atv.somOpcao1 = R.raw.palavra_bola;
-        atv.somOpcao2 = R.raw.palavra_cola;
-        atv.somOpcao3 = R.raw.palavra_sola;
+        atv.opcaoCerto = R.drawable.palavra_bola_menor_certo;
+        atv.somOpcao1 = R.raw.palavra_cola;
+        atv.somOpcao2 = R.raw.palavra_sola;
+        atv.somOpcao3 = R.raw.palavra_bola;
 
         atividades.add(atv);
 
-        /*atividade 2
-        atv = new Atividade();
-        atv.texto = "Segunda questão: bla bla...";
-        atv.imgPrincipal = R.drawable.abcd;
-        atv.somPrincipal = R.raw.som_abcd;
-        atv.imgOpcao1 = R.drawable.bola_modelo2;
-        atv.imgOpcao2 = R.drawable.bola;
-        atv.imgOpcao3 = R.drawable.bola_rima;
-        atv.opcaoCorreta = R.drawable.bola_rima;
-        atv.somOpcao1 = R.raw.som_bo;
-        atv.somOpcao2 = R.raw.som_bola;
-        atv.somOpcao3 = R.raw.som_abcd;
+        //atividade 2
+        atv = new AtividadeTipo1();
+        atv.texto1 = "OLHE A IMAGEM ABAIXO E ESCUTE SEU SOM:";
+        atv.texto2 = "QUAL A PALAVRA ABAIXO QUE REPRESENTA A IMAGEM ACIMA?";
+        atv.imgPrincipal = R.drawable.objeto_casa;
+        atv.somPrincipal = R.raw.palavra_casa;
+        atv.imgOpcao1 = R.drawable.palavra_casa_menor;
+        atv.imgOpcao2 = R.drawable.palavra_asa_menor;
+        atv.imgOpcao3 = R.drawable.palavra_vasa_menor;
+        atv.imgOpcao1Erro = R.drawable.palavra_casa_menor_erro;
+        atv.imgOpcao2Erro = R.drawable.palavra_asa_menor_erro;
+        atv.imgOpcao3Erro = R.drawable.palavra_vasa_menor_erro;
+        atv.opcaoCorreta = R.drawable.palavra_casa_menor;
+        atv.opcaoCerto = R.drawable.palavra_casa_menor_certo;
+        atv.somOpcao1 = R.raw.palavra_cola;
+        atv.somOpcao2 = R.raw.palavra_sola;
+        atv.somOpcao3 = R.raw.palavra_bola;
 
-        atividades.add(atv);*/
+
+        atividades.add(atv);
 
         //exibir atividade 1
         exibirAtividade(atividades.get(0)); //posteriormente usar get random
@@ -159,7 +165,7 @@ public class EncontrarPalavraRimaActivity extends AppCompatActivity implements V
             case R.id.botaoProximo:
                 if (op == true){
                     cont++;
-                    if (cont>0){
+                    if (cont>1){
                         startActivity(new Intent(EncontrarPalavraRimaActivity.this, TelaFimActivity.class));
                     }else{
                         exibirAtividade(atividades.get(cont));

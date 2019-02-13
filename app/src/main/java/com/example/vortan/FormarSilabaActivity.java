@@ -86,25 +86,30 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
         atv.imgOpcao2 = R.drawable.som_2;
         atv.imgOpcao2Erro = R.drawable.som_2_erro;
         atv.opcaoCorreta = R.drawable.som_1;
+        atv.opcaoCerto = R.drawable.som_1_certo;
         atv.somOpcao1 = R.raw.silaba_bo;
         atv.somOpcao2 = R.raw.silaba_po;
 
 
         atividades.add(atv);
 
-        /*atividade 2
-        atv = new Atividade();
-        atv.texto = "Segunda questão: bla bla...";
-        atv.imgPrincipal = R.drawable.abcd;
-        atv.somPrincipal = R.raw.som_abcd;
-        atv.imgOpcao1 = R.drawable.bola_modelo2;
-        atv.imgOpcao2 = R.drawable.bola;
-        atv.imgOpcao3 = R.drawable.bola_rima;
-        atv.opcaoCorreta = R.drawable.bola_rima;
-        atv.somOpcao1 = R.raw.som_bo;
-        atv.somOpcao2 = R.raw.som_bola;
-        atv.somOpcao3 = R.raw.som_abcd;
-        atividades.add(atv);*/
+        //atividade 2
+        atv = new AtividadeTipo2();
+        atv.texto1 = "OLHE ESSAS DUAS LETRAS ABAIXO E ESCUTE SEU SOM:";
+        atv.texto2 = "SE JUNTARMOS AS DUAS LETRAS ACIMA SE FORMARÁ UMA SÍLABA, QUAL O SOM DESSA SÍLABA?";
+        atv.imgPrincipal1 = R.drawable.letra_m;
+        atv.imgPrincipal2 = R.drawable.letra_a;
+        atv.somPrincipal1 = R.raw.letra_b;
+        atv.somPrincipal2 = R.raw.letra_o;
+        atv.imgOpcao1 = R.drawable.som_1;
+        atv.imgOpcao1Erro = R.drawable.som_1_erro;
+        atv.imgOpcao2 = R.drawable.som_2;
+        atv.imgOpcao2Erro = R.drawable.som_2_erro;
+        atv.opcaoCorreta = R.drawable.som_2;
+        atv.opcaoCerto = R.drawable.som_2_certo;
+        atv.somOpcao1 = R.raw.silaba_bo;
+        atv.somOpcao2 = R.raw.silaba_po;
+        atividades.add(atv);
 
         //exibir atividade 1
         exibirAtividade(atividades.get(0)); //posteriormente usar get random
@@ -152,7 +157,7 @@ public class FormarSilabaActivity extends AppCompatActivity implements View.OnCl
             case R.id.botaoProximo:
                 if (op == true){
                     cont++;
-                    if (cont>0){
+                    if (cont>1){
                         startActivity(new Intent(FormarSilabaActivity.this, TelaFimActivity.class));
                     }else{
                         exibirAtividade(atividades.get(cont));
