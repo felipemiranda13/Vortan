@@ -102,7 +102,7 @@ public class EncontrarPalavraEscondidaActivity extends AppCompatActivity impleme
         atv.texto1 = "LEIA ESSA PALAVRA ABAIXO:";
         atv.texto2 = "QUAL DAS OPÇÕES CONTÉM A PALAVRA ACIMA?";
         atv.imgPrincipal = R.drawable.palavra_casa_principal_n;
-        atv.somPrincipal = R.raw.palavra_bola;
+        atv.somPrincipal = R.raw.palavra_casa;
         atv.imgOpcao1 = R.drawable.palavra_escondida_bcasay;
         atv.imgOpcao2 = R.drawable.palavra_escondida_dbapoi;
         atv.imgOpcao3 = R.drawable.palavra_escondida_bcazay;

@@ -108,9 +108,9 @@ public class EncontrarPalavraRimaActivity extends AppCompatActivity implements V
         atv.imgOpcao3Erro = R.drawable.palavra_vasa_menor_erro;
         atv.opcaoCorreta = R.drawable.palavra_casa_menor;
         atv.opcaoCerto = R.drawable.palavra_casa_menor_certo;
-        atv.somOpcao1 = R.raw.palavra_cola;
-        atv.somOpcao2 = R.raw.palavra_sola;
-        atv.somOpcao3 = R.raw.palavra_bola;
+        atv.somOpcao1 = R.raw.palavra_casa;
+        atv.somOpcao2 = R.raw.palavra_asa;
+        atv.somOpcao3 = R.raw.palavra_vasa;
 
 
         atividades.add(atv);

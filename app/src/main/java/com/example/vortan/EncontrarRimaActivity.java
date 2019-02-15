@@ -92,9 +92,9 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
         atv.imgOpcao3Erro = R.drawable.palavra_vaso_menor_erro;
         atv.opcaoCorreta = R.drawable.palavra_cola_menor;
         atv.opcaoCerto = R.drawable.palavra_cola_menor;
-        atv.somOpcao1 = R.raw.palavra_agua;
-        atv.somOpcao2 = R.raw.palavra_cola;
-        atv.somOpcao3 = R.raw.palavra_casa;
+        atv.somOpcao1 = R.raw.palavra_cola;
+        atv.somOpcao2 = R.raw.palavra_agua;
+        atv.somOpcao3 = R.raw.palavra_vaso;
 
         atividades.add(atv);
 
@@ -112,9 +112,9 @@ public class EncontrarRimaActivity extends AppCompatActivity implements View.OnC
         atv.imgOpcao3Erro = R.drawable.palavra_calo_menor_erro;
         atv.opcaoCorreta = R.drawable.palavra_brasa_menor;
         atv.opcaoCerto = R.drawable.palavra_brasa_menor;
-        atv.somOpcao1 = R.raw.palavra_agua;
-        atv.somOpcao2 = R.raw.palavra_cola;
-        atv.somOpcao3 = R.raw.palavra_casa;
+        atv.somOpcao1 = R.raw.palavra_brasa;
+        atv.somOpcao2 = R.raw.palavra_dado;
+        atv.somOpcao3 = R.raw.palavra_calo;
 
         atividades.add(atv);
 

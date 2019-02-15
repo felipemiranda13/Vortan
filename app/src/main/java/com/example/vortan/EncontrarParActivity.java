@@ -105,7 +105,7 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
         atv.texto1 = "LEIA E ESCUTE ESSA SEQUÊNCIA DE LETRAS ABAIXO:";
         atv.texto2 = "QUAL DAS OPÇÕES REPRESENTA A MESMA SEQUÊNCIA DE LETRAS?";
         atv.imgPrincipal = R.drawable.letras_aeio_principal_n;
-        atv.somPrincipal = R.raw.letras_abcd;
+        atv.somPrincipal = R.raw.letras_aeio;
         atv.imgOpcao1 = R.drawable.letras_adio;
         atv.imgOpcao2 = R.drawable.letras_aeio;
         atv.imgOpcao3 = R.drawable.letras_aeiu;
@@ -114,9 +114,9 @@ public class EncontrarParActivity extends AppCompatActivity implements View.OnCl
         atv.imgOpcao3Erro = R.drawable.letras_aeiu_erro;
         atv.opcaoCorreta = R.drawable.letras_aeio;
         atv.opcaoCerto = R.drawable.letras_aeio_certo;
-        atv.somOpcao1 = R.raw.letras_abcd;
-        atv.somOpcao2 = R.raw.letras_abed;
-        atv.somOpcao3 = R.raw.letras_adcb;
+        atv.somOpcao1 = R.raw.letras_adio;
+        atv.somOpcao2 = R.raw.letras_aeio;
+        atv.somOpcao3 = R.raw.letras_aeiu;
 
         atividades.add(atv);
 

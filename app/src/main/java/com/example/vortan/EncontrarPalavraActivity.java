@@ -114,8 +114,8 @@ public class EncontrarPalavraActivity extends AppCompatActivity implements View.
         atv.opcaoCorreta = R.drawable.palavra_casa_menor;
         atv.opcaoCerto = R.drawable.palavra_casa_menor_certo;
         atv.somOpcao1 = R.raw.palavra_casa;
-        atv.somOpcao2 = R.raw.palavra_agua;
-        atv.somOpcao3 = R.raw.palavra_bola;
+        atv.somOpcao2 = R.raw.palavra_caso;
+        atv.somOpcao3 = R.raw.palavra_chao;
 
         atividades.add(atv);
 

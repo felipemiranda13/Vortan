@@ -98,7 +98,7 @@ public class EncontrarSilabaActivity extends AppCompatActivity implements View.O
         atv.texto1 = "ESCUTE O SOM ABAIXO:";
         atv.texto2 = "QUAL DAS SILABAS TEM O MESMO SOM DA OPÇÃO ACIMA?";
         atv.imgPrincipal = R.drawable.som_principal_roxo;
-        atv.somPrincipal = R.raw.silaba_bo;
+        atv.somPrincipal = R.raw.silaba_lo;
         atv.imgOpcao1 = R.drawable.silaba_po_sem;
         atv.imgOpcao2 = R.drawable.silaba_lo_sem;
         atv.imgOpcao3 = R.drawable.silaba_to_sem;
@@ -107,9 +107,9 @@ public class EncontrarSilabaActivity extends AppCompatActivity implements View.O
         atv.imgOpcao3Erro = R.drawable.silaba_to_erro;
         atv.opcaoCorreta = R.drawable.silaba_lo_sem;
         atv.opcaoCerto = R.drawable.silaba_lo_sem_certo;
-        atv.somOpcao1 = R.raw.silaba_bo;
-        atv.somOpcao2 = R.raw.silaba_po;
-        atv.somOpcao3 = R.raw.silaba_la;
+        atv.somOpcao1 = R.raw.silaba_po;
+        atv.somOpcao2 = R.raw.silaba_lo;
+        atv.somOpcao3 = R.raw.silaba_to;
 
         atividades.add(atv);
 
